@@ -1,0 +1,26 @@
+{
+  "name": "admin-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IVAO-Ecuador/admin-system.git"
+  },
+  "keywords": [
+    "admin-system"
+  ],
+  "author": "Santiago Baron Zuleta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IVAO-Ecuador/admin-system/issues"
+  },
+  "homepage": "https://github.com/IVAO-Ecuador/admin-system#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  }
+}

@@ -31,6 +31,13 @@ export const adminPage = (staffInfo) => {
                 <p>Añadir evento a la división</p>
             </div>
         </div>
+        <div class='eventsOption2'>
+            <img src='../src/assets/editar.png'>
+            <div class='text-card'>
+                <h3>Editar evento</h3>
+                <p>Modificar información de evento</p>
+            </div>
+        </div>
         <div class='chartsOption'>
         <img src='../src/assets/vuelo.png'>
             <div class='text-card'>

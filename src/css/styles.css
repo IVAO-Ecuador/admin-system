@@ -189,6 +189,7 @@ body::-webkit-scrollbar-thumb{
 	padding: 30px;
 	display: grid;
 	grid-template-columns: 1fr 3fr;
+	margin-bottom: 30px;
 }
 
 .options-section > div > img{

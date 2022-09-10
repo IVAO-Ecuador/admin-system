@@ -22,7 +22,7 @@ app.get('/getUser/:user', (req,res) => {
     fetch(`https://login.ivao.aero/api.php?type=json&token=${userToken}`)
     .then(data => data.json())
     .then(data => {
-        if(data.vid != null){
+        if(data.vid != null && data.staff != null){
             res.send(data)
         }
     });

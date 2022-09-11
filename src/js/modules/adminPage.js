@@ -1,5 +1,9 @@
 export const adminPage = (staffInfo) => {
 
+    const staffName = `${staffInfo.firstname} ${staffInfo.lastname}`
+    const staffRole = staffInfo.staff;
+    const staffVID = staffInfo.vid;
+
     const mainBody = document.querySelector("body");
     mainBody.style.backgroundImage = "none";
     mainBody.style.backgroundColor = "#080c17"
@@ -43,6 +47,35 @@ export const adminPage = (staffInfo) => {
             <div class='text-card'>
                 <h3>Actualizar las cartas</h3>
                 <p>Poner al día las cartas</p>
+            </div>
+        </div>
+        <div class='examOption'>
+        <img src='../src/assets/examen.png'>
+            <div class='text-card'>
+                <h3>Exámenes y entrenamientos</h3>
+                <p>Agendar o editarlos</p>
+            </div>
+        </div>
+    </div>
+
+    <div class='staff-info-section'>
+        <div class='staffBox'>
+            <div class='staffName'>
+            <img src='../src/assets/user.png' width="30" class='imgFix'>
+                <p>${staffName}</p>
+            </div>
+            <div class='staffRole'>
+                <img
+                src="https://flagcdn.com/w40/ec.png"
+                srcset="https://flagcdn.com/w80/ec.png 2x"
+                width="40"
+                alt="Ecuador"
+                class='imgFix'>
+                <p>${staffRole}</p>
+            </div>
+            <div class='staffVID'>
+                <img src='../src/assets/logo.png' width="40">
+                <p>${staffVID}</p>
             </div>
         </div>
     </div>

@@ -12,6 +12,8 @@ export const adminPage = (staffInfo) => {
     const loginSection = document.querySelector("#loginSection")
     loginSection.remove()
 
+    console.log(authMode);
+
     const adminPanel = document.createElement("div");
     adminPanel.className = "admin-section";
     adminPanel.innerHTML = `
@@ -54,6 +56,13 @@ export const adminPage = (staffInfo) => {
             <div class='text-card'>
                 <h3>Exámenes y entrenamientos</h3>
                 <p>Agendar o editarlos</p>
+            </div>
+        </div>
+        <div class='logsOption'>
+        <img src='../src/assets/log.png'>
+            <div class='text-card'>
+                <h3>Registro de actividad</h3>
+                <p>Últimos cambios realizados</p>
             </div>
         </div>
     </div>

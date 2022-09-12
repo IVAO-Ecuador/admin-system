@@ -1,0 +1,115 @@
+/* Login form */
+
+.login-box{
+	padding: 50px;
+	border-radius: 15px;
+	text-align: center;
+	background-color: #1d204b;
+	width: 580px;
+	height: auto;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: var(--gray-lighter);
+	transform-style: preserve-3d;
+}
+
+.login-box::after{
+	content: '';
+	position: absolute;
+	width: 580px;
+	height: 310px;
+	background-color: #171937;
+	display: block;
+	top: 50px;
+	left: 30px;
+	border-radius: 15px;
+	transform: translateZ(-1px);
+}
+
+.login-box h2{
+	font-size: 27px;
+	margin-bottom: 30px;
+}
+
+.login-box p{
+	margin-bottom: 20px;
+}
+
+.login-button{
+	color: var(--white);
+	display: block;
+	border-radius: 15px;
+	height: 60px;
+	width: 100%;
+	background-color: var(--indigo);
+	position: relative;
+	line-height: 60px;
+	padding-left: 60px;
+	transition: 0.3s all;
+}
+
+.login-button::before{
+	content: '';
+	background: url('../../assets/ivao_official-01.png');
+	background-size: cover;
+	width: 40px;
+	height: 40px;
+	display: block;
+	position: absolute;
+	top: 10px;
+	left: 120px;
+}
+
+.login-button:hover{
+	background-color: #7124ef;
+	transition: 0.3s all;
+	transform: translate(2px, -2px);
+}
+
+.signup-link{
+	color: var(--gray-lighter);
+}
+
+.signup-link:hover{
+	text-decoration: underline;
+}
+
+@media only screen and (max-width: 1024px) {
+    .login-box, .login-box::after{
+        width: 480px;
+    }
+    .login-button::before{
+        left: 70px;
+    }
+}
+
+@media only screen and (max-width: 425px){
+    .login-button::before{
+        display: none;
+    }
+    .login-button{
+        padding-left: 0;
+    }
+    .login-box, .login-box::after{
+        width: 85%;
+        padding: 40px;
+    }
+    .login-box::after{
+        left: -10px;
+        top: 20px;
+    }
+    .login-button::before{
+        left: 20px;
+    }
+}
+
+@media only screen and (max-width: 320px){
+    .login-box{
+        padding: 40px 20px;
+    }
+    .login-box::after{
+        display: none;
+    }
+}

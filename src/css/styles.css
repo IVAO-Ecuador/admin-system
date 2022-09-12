@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('./modules/login.css');
+@import url('./modules/staffPage.css');
 
 * {
 	padding: 0;
@@ -53,11 +55,10 @@
 }
 
 body {
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1080' height='560' preserveAspectRatio='none' viewBox='0 0 1080 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1038%26quot%3b)' fill='none'%3e%3crect width='1080' height='560' x='0' y='0' fill='rgba(13%2c 19%2c 35%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c422.508C81.118%2c428.515%2c175.845%2c418.786%2c230.316%2c358.378C284.642%2c298.132%2c248.554%2c201.516%2c269.859%2c123.24C286.522%2c62.019%2c350.639%2c13.684%2c341.209%2c-49.059C331.782%2c-111.779%2c265.63%2c-146.304%2c222.376%2c-192.69C180.915%2c-237.153%2c143.83%2c-282.756%2c92.668%2c-315.597C25.299%2c-358.841%2c-42.576%2c-427.496%2c-121.368%2c-413.34C-199.535%2c-399.296%2c-241.995%2c-313.884%2c-285.753%2c-247.607C-325.018%2c-188.135%2c-360.596%2c-123.035%2c-360.084%2c-51.772C-359.603%2c15.163%2c-307.856%2c67.093%2c-283.044%2c129.262C-256.573%2c195.588%2c-258.984%2c274.432%2c-209.389%2c325.815C-154.895%2c382.274%2c-78.254%2c416.713%2c0%2c422.508' fill='%23080c17'%3e%3c/path%3e%3cpath d='M1080 858.851C1144.444 856.2280000000001 1208.961 877.077 1269.531 854.9159999999999 1338.682 829.616 1407.557 790.289 1443.319 725.922 1480.02 659.865 1486.157 577.047 1464.065 504.78 1443.2 436.527 1382.354 391.073 1327.132 345.85900000000004 1279.663 306.993 1227.604 274.322 1167.51 261.969 1110.504 250.25099999999998 1053.223 262.246 997.2090000000001 278.04 940.654 293.986 884.9 313.621 841.981 353.755 796.082 396.676 764.371 451.744 746.9010000000001 512.108 727.53 579.039 712.6610000000001 651.358 736.95 716.6659999999999 761.909 783.7760000000001 814.143 843.3430000000001 880.288 870.758 943.168 896.8199999999999 1011.989 861.619 1080 858.851' fill='%23121a2f'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1038'%3e%3crect width='1080' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
     background-size: cover;
-	overflow: hidden;
 }
 
 body::after{
@@ -79,178 +80,4 @@ body::-webkit-scrollbar-thumb{
 .admin-panel{
 	width: 80%;
 	margin: 100px auto;
-}
-
-/* Login form */
-
-.login-box{
-	padding: 50px;
-	border-radius: 15px;
-	text-align: center;
-	background-color: #1d204b;
-	width: 580px;
-	height: auto;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	color: var(--gray-lighter);
-	transform-style: preserve-3d;
-}
-
-.login-box::after{
-	content: '';
-	position: absolute;
-	width: 580px;
-	height: 310px;
-	background-color: #171937;
-	display: block;
-	top: 50px;
-	left: 30px;
-	border-radius: 15px;
-	transform: translateZ(-1px);
-}
-
-.login-box h2{
-	font-size: 27px;
-	margin-bottom: 30px;
-}
-
-.login-box p{
-	margin-bottom: 20px;
-}
-
-.login-button{
-	color: var(--white);
-	display: block;
-	border-radius: 15px;
-	height: 60px;
-	width: 100%;
-	background-color: var(--indigo);
-	position: relative;
-	line-height: 60px;
-	padding-left: 60px;
-	transition: 0.3s all;
-}
-
-.login-button::before{
-	content: '';
-	background: url('../assets/ivao_official-01.png');
-	background-size: cover;
-	width: 40px;
-	height: 40px;
-	display: block;
-	position: absolute;
-	top: 10px;
-	left: 120px;
-}
-
-.login-button:hover{
-	background-color: #7124ef;
-	transition: 0.3s all;
-	transform: translate(2px, -2px);
-}
-
-.signup-link{
-	color: var(--gray-lighter);
-}
-
-.signup-link:hover{
-	text-decoration: underline;
-}
-
-/*Admin panel*/
-
-.title-section{
-	width: 100%;
-}
-
-.title-section h1{
-	text-align: center;
-	font-size: 32px;
-	color: var(--white);
-	font-weight: 600;
-	margin-bottom: 60px;
-}
-
-.options-section{
-	width: 100%;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	column-gap: 30px;
-	margin-bottom: 40px;
-}
-
-.options-section > div{
-	background-color: #171b31;
-	height: 150px;
-	border-radius: 15px;
-	cursor: pointer;
-	transition: all 0.3s;
-	padding: 30px;
-	display: grid;
-	grid-template-columns: 1fr 3fr;
-	margin-bottom: 30px;
-}
-
-.options-section > div > img{
-	width: 90px;
-	height: 90px;
-	background-color: rgba(128, 128, 128, 0.237);
-	border-radius: 15px;
-	padding: 15px;
-	display: block;
-	margin: auto;
-}
-
-.options-section > div:hover{
-	transform: translate(2px, -2px);
-	transition: all 0.3s;
-}
-
-.text-card{
-	padding: 20px;
-	line-height: 20px;
-	color: var(--white);
-	margin-left: 10px;
-}
-
-.text-card h3{
-	margin-bottom: 10px;
-	font-weight: 600;
-}
-
-.staff-info-section{
-	width: 100%;
-}
-
-.staffBox{
-	width: 65%;
-	margin: auto;
-	display: grid;
-	grid-template-columns: 1.5fr 1.2fr 0.8fr;
-	column-gap: 30px;
-	text-align: center;
-}
-
-.staffBox > div {
-	height: 80px;
-	background-color: #171b31;
-	border-radius: 15px;
-	padding: 20px 30px;
-	color: var(--white);
-}
-
-.staffBox > div > img{
-	float: left;
-	margin-right: 20px;
-}
-
-.staffBox > div > p{
-	line-height: 42px;
-}
-
-.imgFix{
-	margin-top: 6px;
-    border-radius: 3px;
 }

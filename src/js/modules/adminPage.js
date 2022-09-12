@@ -12,8 +12,6 @@ export const adminPage = (staffInfo) => {
     const loginSection = document.querySelector("#loginSection")
     loginSection.remove()
 
-    console.log(authMode);
-
     const adminPanel = document.createElement("div");
     adminPanel.className = "admin-section";
     adminPanel.innerHTML = `

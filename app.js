@@ -24,9 +24,8 @@ app.get('/getUser/:user', (req,res) => {
     .then(data => { 
 
         const staffAU = data.staff;
-        const authMode = staffAU.startsWitch('EC');
-
-        if(data.vid != null && authMode == true){
+        const authMode = staffAU.startsWith('EC');
+        if(data.vid !== null && authMode === true){
             res.send(data)
         }
     });

@@ -1,0 +1,213 @@
+/* Find user*/
+
+.findUserSection{
+    margin-bottom: 80px;
+}
+
+.findInput{
+    display: grid;
+    grid-template-columns: 0.8fr 5fr;
+    column-gap: 30px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.findInput label{
+    color: var(--white);
+    text-align: left;
+    line-height: 50px;
+}
+
+.findInput input{
+    height: 50px;
+    border-radius: 15px;
+    background-color:#171b31;
+    padding-left: 20px;
+    color: var(--white);
+}
+
+
+#filterButton{
+    position: absolute;
+    right: 0px;
+    width: 80px;
+    height: 50px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: var(--indigo);
+    cursor: pointer;
+}
+
+#filterButton img{
+    width: 30px;
+    margin-top: 5px;
+}
+
+.totalUsers{
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 30px;
+}
+
+#results{
+    width: 100%;
+    border-collapse:separate;
+    border-spacing:0 15px;
+}
+
+#results .userRow, #results tr{
+    height: 90px;
+    background-color: #171b31;
+    margin-bottom: 10px;
+}
+
+#results tr{
+    height: 60px;
+    background-color: var(--indigo);
+    border-radius: 15px;
+}
+
+#results tr th{
+    font-weight: 500;
+    text-align: left;
+    padding-left: 30px;
+}
+
+#results tr, .userRow td{
+    padding: 30px;
+    color: var(--white);
+}
+
+.firstTD{
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.lastTD{
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.adjustWidth{
+    width: var(--aw);
+}
+
+.deleteUserButton{
+    width: 80%;
+    height: 40px;
+    border-radius: 5px;
+    background-color: var(--dark);
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s all;
+    margin-left: 20px;
+}
+
+.txtFlag{
+    float: right;
+    line-height: 35px;
+    margin-right: 10px;
+}
+
+.txtDivision{
+    line-height: 35px;
+    margin-right: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.txtDivision::before{
+    content: '';
+    width: 12px;
+    height: 12px;
+    display: block;
+    background-color: #0d2c99;
+    position: absolute;
+    border-radius: 50%;
+    top: 12px;
+    left: 5px;
+}
+
+.showAllButton{
+    width: 50%;
+    margin: 40px auto;
+    display: block;
+    height: 60px;
+    border-radius: 15px;
+    background-color: var(--indigo);
+    color: #FFF;
+    font-size: 16px;
+    transition: 0.3s all;
+    cursor: pointer;
+}
+
+.showAllButton:hover{
+	background-color: #7124ef;
+	transition: 0.3s all;
+	transform: translate(2px, -2px);
+}
+
+.go-up{
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	background-color: var(--indigo);
+	border-radius: 15px;
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+	opacity: 0;
+	transition: 0.5s;
+}
+.go-up img{
+	width: 100%;
+	margin-top: -2px;
+	transform: rotate(180deg);
+}
+
+@media only screen and (max-width: 1440px){
+    .adjustWidth{
+        width: var(--aw1440) !important;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .findUserSection{
+        overflow-x: hidden;
+    }
+    #results{
+        width: 100%;
+        overflow-y: scroll;
+        display: block;
+    }
+    .findInput{
+        display: block;
+    }
+    .findInput label, .findInput input{
+        width: 100%;
+    }
+
+    .findInput input{
+        position: relative;
+    }
+
+    #filterButton{
+        position: absolute;
+        right: 0px;
+        bottom: 0;
+        width: 80px;
+        height: 50px;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        background-color: var(--indigo);
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    
+}
+
+@media only screen and (max-width: 425px){}
+
+@media only screen and (max-width: 320px){}

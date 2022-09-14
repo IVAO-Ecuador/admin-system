@@ -2,6 +2,8 @@ import { findUser } from "./findUser.js";
 
 export let optionSection;
 export let titleSection;
+export let adminSection;
+export let staffInfoSection;
 export const adminPage = (staffInfo) => {
 
     const staffName = `${staffInfo.firstname} ${staffInfo.lastname}`
@@ -10,11 +12,14 @@ export const adminPage = (staffInfo) => {
 
     const mainBody = document.querySelector("body");
     mainBody.style.backgroundImage = "none";
-    mainBody.style.backgroundColor = "#080c17"
+    mainBody.style.backgroundColor = "#080c17";
+
+    const adminSectionBox = document.querySelector(".admin-section");
+    if(adminSectionBox != undefined){
+        adminSectionBox.remove();
+    }
 
     const bodyPage = document.querySelector(".admin-panel");
-    const loginSection = document.querySelector("#loginSection")
-    loginSection.remove()
 
     const adminPanel = document.createElement("div");
     adminPanel.className = "admin-section";
@@ -96,7 +101,10 @@ export const adminPage = (staffInfo) => {
     bodyPage.append(adminPanel);
 
     optionSection = document.querySelector(".options-section");
-    titleSection = document.querySelector(".title-section")
+    titleSection = document.querySelector(".title-section");
+    adminSection = document.querySelector(".admin-section");
+    staffInfoSection = document.querySelector(".staff-info-section");
+
     const findOption = document.querySelector(".findOption");
     const eventsOption = document.querySelector(".eventsOption");
     const eventsOption2 = document.querySelector(".eventsOption2");
@@ -105,7 +113,7 @@ export const adminPage = (staffInfo) => {
     const logsOption = document.querySelector(".logsOption")
 
     findOption.addEventListener("click", () => {
-        findUser();
+        findUser("",staffInfo);
     })
 
 }

@@ -14,7 +14,6 @@ app.use(express.static('./'));
 app.use(express.json());
 
 /** Database connection */
-
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -35,17 +34,40 @@ app.get('/', (req, res) => {
 })
 
 app.get('/users', (req, res) => {
-
-    const sql = 'SELECT * FROM staff';
+    const sql = 'SELECT * FROM usuarios';
     connection.query(sql, (error, results) => {
         if(error) throw error;
         if(results.length > 0){
             res.json(results);
         }else{
-            res.send('No results')
+            res.json('NoResults')
         }
     });
 });
+
+app.get('/users/:vid', (req, res) => {
+    const {vid} = req.params;
+    const sql = `SELECT * FROM usuarios WHERE vid = ${vid}`;
+    connection.query(sql, (error, results) => {
+        if(error) throw error;
+        if(results.length > 0){
+            res.json(results);
+        }else{
+            res.json('NoResults')
+        }
+    });
+});
+
+app.get('/users/delete/:vid', (req, res) => {
+    const {vid} = req.params;
+    console.log(vid);
+    const sql = `DELETE FROM usuarios WHERE vid = ${vid}`;
+    connection.query(sql, (error) => {
+        if(error) throw error;
+        res.json("Eliminado");
+    });
+});
+
 
 app.get('/getUser/:user', (req,res) => {
     const userToken = req.params.user;

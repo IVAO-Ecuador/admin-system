@@ -6,6 +6,18 @@ export let adminSection;
 export let staffInfoSection;
 export const adminPage = (staffInfo) => {
 
+    const popUpAlert = (type, message, image) => {
+        Swal.fire({
+                icon: `${image}`,
+                title: `${type}`,
+                text: `${message}`,
+                background: "#1d204b",
+                color: "#FFF",
+                customClass: { popup: "swal2-border-radius" }
+            } 
+        );
+    }
+
     const staffName = `${staffInfo.firstname} ${staffInfo.lastname}`
     const staffRole = staffInfo.staff;
     const staffVID = staffInfo.vid;
@@ -113,7 +125,11 @@ export const adminPage = (staffInfo) => {
     const logsOption = document.querySelector(".logsOption")
 
     findOption.addEventListener("click", () => {
-        findUser("",staffInfo);
+        if(staffInfo.staff == "EC-DIR" || staffInfo.staff == "EC-ADIR" || staffInfo.staff == "EC-WM"){
+            findUser("",staffInfo);
+        }else{
+            popUpAlert("No tienes permisos suficientes", `Esta zona esta restringida`, "warning");
+        }
     })
 
 }

@@ -83,5 +83,5 @@ app.get('/getUser/:user', (req,res) => {
     });
 })
 
-const port = process.env.port || 3050;
+const port = process.env.port || 3080;
 app.listen(port, () => console.log(`Escuchando en el puerto ${port}...`));

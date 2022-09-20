@@ -95,6 +95,12 @@
     border-radius: 3px;
 }
 
+.totalUsers, .totalLogs{
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 30px;
+}
+
 @media only screen and (max-width: 1440px)  {
     body{
         overflow-x: scroll;

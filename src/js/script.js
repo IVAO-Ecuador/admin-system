@@ -1,22 +1,24 @@
 import { adminPage } from "./modules/adminPage.js";
+import { createLog } from "./modules/createLog.js";
 
 let param = new URLSearchParams(location.search);
 var token = param.get('IVAOTOKEN');
-let userInfo = [];
+let staffInfo = [];
 
 if(token != null){
     fetch(`/getUser/${token}`)
     .then(data => data.json())
     .then(data => {
-        userInfo = data;
-        
+        staffInfo = data;
+
+        createLog(staffInfo, "Ha iniciado sesión en el panel administrativo")
+
         const loginSection = document.querySelector("#loginSection")
         loginSection.remove();
 
-        adminPage(userInfo);
+        adminPage(staffInfo);
         window.history.pushState("object or string", "Title", "/"+window.location.href.substring(window.location.href.lastIndexOf('/') + 1).split("?")[0]);
     })}
-
 
 
 // Button to go up

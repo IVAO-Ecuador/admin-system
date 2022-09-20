@@ -1,6 +1,6 @@
 /* Find user*/
 
-.findUserSection{
+.findUserSection, .logsSection{
     margin-bottom: 80px;
 }
 
@@ -43,19 +43,13 @@
     margin-top: 5px;
 }
 
-.totalUsers{
-    text-align: center;
-    color: var(--white);
-    margin-bottom: 30px;
-}
-
 #results{
     width: 100%;
     border-collapse:separate;
     border-spacing:0 15px;
 }
 
-#results .userRow, #results tr{
+#results .userRow, #results .logRow, #results tr{
     height: 90px;
     background-color: #171b31;
     margin-bottom: 10px;
@@ -73,7 +67,7 @@
     padding-left: 30px;
 }
 
-#results tr, .userRow td{
+#results tr, .userRow td, .logRow td{
     padding: 30px;
     color: var(--white);
 }

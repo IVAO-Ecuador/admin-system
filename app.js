@@ -15,10 +15,10 @@ app.use(express.json());
 
 /** Database connection */
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'testeo_ivao'
+    host: "localhost",
+    user: "ecivao_admin_ec",
+    password: "DQl5XY^JO7mN",
+    database: "ecivao_database_ec"
 })
 
 connection.connect(error => {
@@ -32,6 +32,43 @@ app.get('/', (req, res) => {
     res.setHeader('Content-type', 'text/html');
     res.sendFile('./index.html')
 })
+
+app.get('/logs', (req, res) => {
+    const sql = 'SELECT * FROM logs';
+    connection.query(sql, (error, results) => {
+        if(error) throw error;
+        if(results.length > 0){
+            res.json(results);
+        }else{
+            res.json('NoResults')
+        }
+    });
+});
+
+app.post('/logs/new/', (req, res) => {
+    const sql = `INSERT INTO logs SET ?`;
+
+    const logObj = {
+        vid: req.body.vid,
+        nombre: req.body.nombre,
+        descripcion: req.body.descripcion,
+        fecha: req.body.fecha
+    };
+
+    connection.query(sql, logObj, error => {
+        if(error) throw error;
+    })
+});
+
+
+
+
+
+
+
+
+
+
 
 app.get('/users', (req, res) => {
     const sql = 'SELECT * FROM usuarios';
@@ -83,5 +120,5 @@ app.get('/getUser/:user', (req,res) => {
     });
 })
 
-const port = process.env.port || 3080;
+const port = process.env.port || 3050;
 app.listen(port, () => console.log(`Escuchando en el puerto ${port}...`));

@@ -1,4 +1,5 @@
 import { findUser } from "./findUser.js";
+import { getLogs } from "./getLogs.js";
 
 export let optionSection;
 export let titleSection;
@@ -129,6 +130,14 @@ export const adminPage = (staffInfo) => {
             findUser("",staffInfo);
         }else{
             popUpAlert("No tienes permisos suficientes", `Esta zona esta restringida`, "warning");
+        }
+    })
+
+    logsOption.addEventListener("click", () => {
+        if(staffInfo.staff == "EC-WM"){
+            getLogs(staffInfo);
+        }else{
+            popUpAlert("No tienes permisos suficientes", `Esta zona esta en mantenimiento`, "warning");
         }
     })
 

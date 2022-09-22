@@ -1,0 +1,62 @@
+.createEventsSection {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    grid-column: 30px;
+    margin-bottom: 80px;
+}
+
+.cardEventPreview{
+    margin: 30px;
+    background-color: #171b31;
+    border-radius: 15px;
+    position: relative;
+}
+
+.cardEventPreview img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.cardEventPreview > .eventDate{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    color: var(--white);
+    font-weight: 400;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 15px;
+    background-color: var(--indigo);
+}
+
+.cardEventPreview > div{
+    padding: 40px;
+    color: var(--white);
+}
+
+.cardEventPreview > div > h3{
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.cardEventPreview > div > p{
+    margin-bottom: 30px;
+}
+
+.cardEventPreview > div > div{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+    margin: 0 10px;
+}
+
+.cardEventPreview > div > div > span{
+    text-align: center;
+    background-color: var(--indigo);
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 15px;
+}

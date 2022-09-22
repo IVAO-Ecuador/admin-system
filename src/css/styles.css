@@ -2,6 +2,7 @@
 @import url('./modules/login.css');
 @import url('./modules/staffPage.css');
 @import url('./modules/findUser.css');
+@import url('./modules/events.css');
 
 * {
 	padding: 0;

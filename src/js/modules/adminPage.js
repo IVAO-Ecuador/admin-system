@@ -1,5 +1,7 @@
+import { createEvent } from "./createEvent.js";
 import { findUser } from "./findUser.js";
 import { getLogs } from "./getLogs.js";
+import { popUpAlert } from "./popAlert.js";
 
 /* Exporting the variables to be used in other files. */
 export let optionSection;
@@ -7,25 +9,6 @@ export let titleSection;
 export let adminSection;
 export let staffInfoSection;
 export const adminPage = (staffInfo) => {
-
-    /**
-     * This function takes in three parameters, type, message, and image, and then displays a popup
-     * alert with the given parameters.
-     * @param type - The type of alert you want to display.
-     * @param message - The message you want to display in the popup
-     * @param image - The image to be displayed in the popup.
-     */
-    const popUpAlert = (type, message, image) => {
-        Swal.fire({
-                icon: `${image}`,
-                title: `${type}`,
-                text: `${message}`,
-                background: "#1d204b",
-                color: "#FFF",
-                customClass: { popup: "swal2-border-radius" }
-            } 
-        );
-    }
 
     /* Just creating variables to be used in the HTML. */
     const staffName = `${staffInfo.firstname} ${staffInfo.lastname}`
@@ -158,5 +141,9 @@ export const adminPage = (staffInfo) => {
             popUpAlert("No tienes permisos suficientes", `Esta zona esta en mantenimiento`, "warning");
         }
     });
+
+    eventsOption.addEventListener("click", () => {
+        createEvent(staffInfo);
+    })
 
 }

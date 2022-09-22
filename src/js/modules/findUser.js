@@ -1,16 +1,9 @@
 import { adminPage, adminSection, optionSection, staffInfoSection, titleSection } from "./adminPage.js"
+import { popUpAlert } from "./popAlert.js";
 
 const regionalDivision = ["XA","XC","XO","XR","XG","XN","XE","XU","XB","XS", "XY", "XM","XZ", "AN"];
 
 export const findUser = async (userToFind = "", staffInfo) => {
-
-    const popUpAlert = (type, message, image) => {
-        Swal.fire(
-            `${type}`,
-            `${message}`,
-            `${image}`
-          );
-    }
 
     /* Main change */
     titleSection.innerHTML = `<h1>Buscar usuario</h1>

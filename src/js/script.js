@@ -1,10 +1,13 @@
 import { adminPage } from "./modules/adminPage.js";
 import { createLog } from "./modules/createLog.js";
 
+/* Getting the token from the URL. */
 let param = new URLSearchParams(location.search);
 var token = param.get('IVAOTOKEN');
 let staffInfo = [];
 
+/* Checking if the token is null or not. If it is not null, it will fetch the user data from the
+database. */
 if(token != null){
     fetch(`/getUser/${token}`)
     .then(data => data.json())
@@ -18,8 +21,8 @@ if(token != null){
 
         adminPage(staffInfo);
         window.history.pushState("object or string", "Title", "/"+window.location.href.substring(window.location.href.lastIndexOf('/') + 1).split("?")[0]);
-    })}
-
+    })
+}
 
 // Button to go up
 const buttonGoUp = document.getElementById("btn-go-up");

@@ -15,10 +15,10 @@ app.use(express.json());
 
 /** Database connection */
 const connection = mysql.createConnection({
-    host: "localhost",
-    user: "ecivao_admin_ec",
-    password: "DQl5XY^JO7mN",
-    database: "ecivao_database_ec"
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'testeo_ivao'
 })
 
 connection.connect(error => {
@@ -59,15 +59,6 @@ app.post('/logs/new/', (req, res) => {
         if(error) throw error;
     })
 });
-
-
-
-
-
-
-
-
-
 
 
 app.get('/users', (req, res) => {

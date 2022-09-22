@@ -1,12 +1,20 @@
 import { findUser } from "./findUser.js";
 import { getLogs } from "./getLogs.js";
 
+/* Exporting the variables to be used in other files. */
 export let optionSection;
 export let titleSection;
 export let adminSection;
 export let staffInfoSection;
 export const adminPage = (staffInfo) => {
 
+    /**
+     * This function takes in three parameters, type, message, and image, and then displays a popup
+     * alert with the given parameters.
+     * @param type - The type of alert you want to display.
+     * @param message - The message you want to display in the popup
+     * @param image - The image to be displayed in the popup.
+     */
     const popUpAlert = (type, message, image) => {
         Swal.fire({
                 icon: `${image}`,
@@ -19,14 +27,17 @@ export const adminPage = (staffInfo) => {
         );
     }
 
+    /* Just creating variables to be used in the HTML. */
     const staffName = `${staffInfo.firstname} ${staffInfo.lastname}`
     const staffRole = staffInfo.staff;
     const staffVID = staffInfo.vid;
 
+    /* Just changing the background color of the body. */
     const mainBody = document.querySelector("body");
     mainBody.style.backgroundImage = "none";
     mainBody.style.backgroundColor = "#080c17";
 
+    /* Removing the previous admin section. */
     const adminSectionBox = document.querySelector(".admin-section");
     if(adminSectionBox != undefined){
         adminSectionBox.remove();
@@ -34,6 +45,7 @@ export const adminPage = (staffInfo) => {
 
     const bodyPage = document.querySelector(".admin-panel");
 
+    /* Creating a div element and then adding the HTML code to it. */
     const adminPanel = document.createElement("div");
     adminPanel.className = "admin-section";
     adminPanel.innerHTML = `
@@ -113,6 +125,7 @@ export const adminPage = (staffInfo) => {
 
     bodyPage.append(adminPanel);
 
+    /* Just creating variables to be used in other files. */
     optionSection = document.querySelector(".options-section");
     titleSection = document.querySelector(".title-section");
     adminSection = document.querySelector(".admin-section");
@@ -125,20 +138,25 @@ export const adminPage = (staffInfo) => {
     const examOption = document.querySelector(".examOption");
     const logsOption = document.querySelector(".logsOption")
 
+    /* An event listener that is listening for a click on the findOption div. If the staffInfo.staff is
+    equal to EC-DIR, EC-ADIR, or EC-WM, then it will run the findUser function. If not, then it will
+    run the popUpAlert function. */
     findOption.addEventListener("click", () => {
         if(staffInfo.staff == "EC-DIR" || staffInfo.staff == "EC-ADIR" || staffInfo.staff == "EC-WM"){
             findUser("",staffInfo);
         }else{
             popUpAlert("No tienes permisos suficientes", `Esta zona esta restringida`, "warning");
         }
-    })
+    });
 
+    /* Listening for a click on the logsOption div. If the staffInfo.staff is equal to EC-WM, then it
+    will run the getLogs function. If not, then it will run the popUpAlert function. */
     logsOption.addEventListener("click", () => {
         if(staffInfo.staff == "EC-WM"){
             getLogs(staffInfo);
         }else{
             popUpAlert("No tienes permisos suficientes", `Esta zona esta en mantenimiento`, "warning");
         }
-    })
+    });
 
 }

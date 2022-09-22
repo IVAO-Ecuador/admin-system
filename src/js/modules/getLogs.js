@@ -7,6 +7,7 @@ export const getLogs = async (staffInfo) => {
     <button class='goBackButton'>Volver atrás</button>`;
     optionSection.remove();
 
+    /* Adding an event listener to the button. */
     const goBackButton = document.querySelector(".goBackButton");
     goBackButton.addEventListener("click", () => {
         adminPage(staffInfo);
@@ -15,6 +16,7 @@ export const getLogs = async (staffInfo) => {
     /** Variables */
     let logsArray = [], countLogs;
 
+    /* Fetching the data from the server and storing it in the logsArray variable. */
     await fetch("/logs")
     .then(response => response.json())
     .then(data => logsArray = data);
@@ -37,11 +39,14 @@ export const getLogs = async (staffInfo) => {
     </table>`
 
     adminSection.insertBefore(logsSection, staffInfoSection);
-
     const logsTable = document.querySelector("#results > tbody");
 
 
+    /* Checking if the logsArray is not equal to "NoResults" and if it is not, it is reversing the
+    array and then it is looping through the array and creating a row element for each log in the
+    array. */
     if(logsArray != "NoResults"){
+        logsArray.reverse();
         logsArray.forEach(log => {
 
             const rowElement = document.createElement('tr');

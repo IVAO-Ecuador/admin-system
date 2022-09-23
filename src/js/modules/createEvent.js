@@ -38,38 +38,42 @@ export const createEvent = (staffInfo) => {
             <h3>Formulario para crear evento</h3>
 
             <label>Titulo del evento</label>
-            <input type='text' id='eventName'>
+            <input type='text' id='eventName' placeholder='Escribe el titulo para el evento'>
 
             <label>Descripcion del evento</label>
-            <input type='text' id='eventDesc'>
+            <input type='text' id='eventDesc' placeholder='Describe el evento aquí'>
 
             <label>Link de la imagen <a href='https://imgur.com/'>(Imgur)</a></label>
-            <input type='text' id='eventImg'>
+            <input type='text' id='eventImg' placeholder='Pega aqui el link Imgur de la imagen del evento'>
 
             <div class='form-section' style='--sc: 2;'>
                 <div>
                     <label>Fecha del evento (Texto)</label>
-                    <input type='text' id='eventDateText'>
+                    <input type='text' id='eventDateText' placeholder='25 de agosto de 2022' maxlength="35">
                 </div>
 
                 <div>
                     <label>Fecha del evento (Seleccionar)</label>
-                    <input type='date' id='eventDate'>
+                    <input type='date' id='eventDate' placeholder='25/08/2022'>
                 </div>
             </div>
 
             <div class='form-section' style='--sc: 3;'>
                 <div>
                     <label>Hora del evento</label>
-                    <input type='text' id='eventHour'>
+                    <input type='text' id='eventHour' placeholder='19:00z - 20:00z' maxlength="15">
                 </div>
                 <div>
                     <label>Lugares del evento</label>
-                    <input type='text' id='eventPlaces'>
+                    <input type='text' id='eventPlaces' placeholder='SEQM - SEGU' maxlength="20">
                 </div>
                 <div>
                     <label>Estado del evento</label>
-                    <input type='text' id='eventStatus'>
+                    <select id='eventStatus' placeholder=''>
+                        <option value='Activo' selected>Activo</option>
+                        <option value='Inactivo'>Inactivo</option>
+                        <option value='Finalizado'>Finalizado</option>
+                    </select>
                 </div>
             </div>
 
@@ -124,7 +128,7 @@ export const createEvent = (staffInfo) => {
         preview_places.innerHTML = eventPlaces.value;
     });
 
-    eventStatus.addEventListener("keyup", () => {
+    eventStatus.addEventListener("change", () => {
         preview_status.innerHTML = eventStatus.value;
     });
 

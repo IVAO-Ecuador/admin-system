@@ -23,8 +23,11 @@ export const createEvent = (staffInfo) => {
         <p class='eventDate' id='preview_dateText'>Martes 10 de Agosto de 2021</p>
         <img src="./src/assets/ejem.png" id='preview_img'>
         <div>
-            <h3 id='preview_title'>RFE event for the first anniversary of the Ecuador division in IVAO!</h3>
-            <p id='preview_desc'>To celebrate our first anniversary being part of IVAO, we want to invite you to participate in an "ECUADOR RFE" that will take place on July 10th at our two main airports (SEQM and SEGU) in the time slot from 19z to 23z. For this, we have arranged a flight reservation system so that you as a pilot can select a flight for that day.</p>
+            <h3 id='preview_title'>Este es un titulo de prueba usado en esta tarjeta de previsualización!</h3>
+            <p id='preview_desc'>En este espacio irá la descripción del evento, asegúrate de una correcta escritura para su buen entendimiento.
+             Más abajo estarán los detalles del evento como el el lugar, hora y estado. Estos datos luego podrán ser cambiados en el editor de eventos.
+             Todo evento primero deberá ser aprobado antes de ser publicado.
+             </p>
             <div>
                 <span id='preview_hour'>19:00z - 20:00z</span>
                 <span id='preview_places'>SEQM - SEMT</span>
@@ -65,7 +68,7 @@ export const createEvent = (staffInfo) => {
                 </div>
                 <div>
                     <label>Lugares del evento</label>
-                    <input type='text' id='eventPlaces' placeholder='SEQM - SEGU' maxlength="20">
+                    <input type='text' id='eventPlaces' placeholder='SEQM - SEGU' maxlength="20" min="2017-01-01">
                 </div>
                 <div>
                     <label>Estado del evento</label>
@@ -94,6 +97,17 @@ export const createEvent = (staffInfo) => {
     const eventHour = document.querySelector("#eventHour");
     const eventPlaces = document.querySelector("#eventPlaces");
     const eventStatus = document.querySelector("#eventStatus");
+
+    var fecha = new Date();
+    var year = fecha.getFullYear();
+    var dia = fecha.getDate();
+    var _mes = fecha.getMonth() + 1;
+    if(_mes < 10){
+        var mes = "0" + _mes;
+    }else{
+        var mes = _mes.toString;
+    }
+    document.getElementById("eventDate").min = year+'-'+mes+'-'+dia; 
 
     const preview_dateText = document.querySelector("#preview_dateText");
     const preview_img = document.querySelector("#preview_img");

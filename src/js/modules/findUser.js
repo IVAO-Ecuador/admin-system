@@ -93,7 +93,7 @@ export const findUser = async (userToFind = "", staffInfo) => {
     filterButton.addEventListener('click', () => {
         if(filterInput.value != ""){
             const vidToFind = filterInput.value;
-            findUser(vidToFind);
+            findUser(vidToFind, staffInfo);
         }
     });
 
@@ -101,7 +101,7 @@ export const findUser = async (userToFind = "", staffInfo) => {
         var keycode = e.keyCode || e.which;
         if (keycode == 13 && filterInput.value != "") {
             const vidToFind = filterInput.value;
-            findUser(vidToFind);
+            findUser(vidToFind,staffInfo);
         }
     });
 
@@ -109,7 +109,7 @@ export const findUser = async (userToFind = "", staffInfo) => {
     element, the findUser function is called. */
     if(fetchURL != "/users"){
         showAllButton.addEventListener("click", () => {
-            findUser();
+            findUser("",staffInfo);
         })
     }
     
@@ -164,7 +164,7 @@ export const findUser = async (userToFind = "", staffInfo) => {
                 .then(response => response.json())
                 .then(data => {
                     popUpAlert("El usuario fue eliminado", `El usuario con VID ${userVID} fue eliminado`, "success");
-                    findUser();
+                    findUser("",staffInfo);
                 })
             })
         });

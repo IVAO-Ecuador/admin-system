@@ -20,7 +20,7 @@ export const createEvent = (staffInfo) => {
     
 
     <div class='cardEventPreview'>
-        <p class='eventDate' id='preview_dateText'>Martes 10 de Agosto de 2021</p>
+        <p class='eventDate' id='preview_dateText'>Martes 10 de Agosto de 2022</p>
         <img src="./src/assets/ejem.png" id='preview_img'>
         <div>
             <h3 id='preview_title'>Este es un titulo de prueba usado en esta tarjeta de previsualización!</h3>

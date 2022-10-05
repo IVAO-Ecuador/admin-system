@@ -8,6 +8,7 @@ let staffInfo = [];
 
 /* Checking if the token is null or not. If it is not null, it will fetch the user data from the
 database. */
+
 if(token != null){
     fetch(`/getUser/${token}`)
     .then(data => data.json())

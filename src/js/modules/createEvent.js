@@ -1,4 +1,6 @@
 import { adminPage, adminSection, optionSection, staffInfoSection, titleSection } from "./adminPage.js";
+import { createLog } from "./createLog.js";
+import { popUpAlert } from "./popAlert.js";
 
 export const createEvent = (staffInfo) => {
 
@@ -145,5 +147,35 @@ export const createEvent = (staffInfo) => {
     eventStatus.addEventListener("change", () => {
         preview_status.innerHTML = eventStatus.value;
     });
+
+    const createEventButton = document.querySelector(".createEventButton");
+    createEventButton.addEventListener("click", (e) => {
+
+        e.preventDefault();
+
+        const eventInfo = {
+            titulo: eventName.value,
+            detalle: eventDesc.value,
+            link_imagen: eventImg.value,
+            fecha_larga: eventDateText.value,
+            fecha_corta: eventDate.value,
+            hora: eventHour.value,
+            lugar: eventPlaces.value,
+            estado: eventStatus.value
+        }
+
+        fetch("/events/new", {
+            method: "POST",
+            body: JSON.stringify(eventInfo),
+            headers: {"Content-type": "application/json; charset=UTF-8"}
+        })
+        .then(
+            popUpAlert("Se ha creado un evento", `El evento se ha agregado satisfactoriamente`, "success"),
+            createLog(staffInfo, `Ha creado el evento: ${eventInfo.titulo}`)
+        )
+        .catch(err => console.log(err));
+
+
+    })
 
 }

@@ -14,7 +14,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./'));
 app.use(express.json());
 
-/** Database connection */
+/***************************************************************
+ *                     Database connection 
+***************************************************************/
+
 const connection = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
@@ -27,12 +30,18 @@ connection.connect(error => {
     console.log('Database server running!')
 })
 
-/** Routes */
+/***************************************************************
+ *                          Routes 
+***************************************************************/
 
 app.get('/', (req, res) => {
     res.setHeader('Content-type', 'text/html');
     res.sendFile('./index.html')
 })
+
+/***************************************************************
+ *                          Logs
+***************************************************************/
 
 app.get('/logs', (req, res) => {
     const sql = 'SELECT * FROM logs';
@@ -61,6 +70,34 @@ app.post('/logs/new/', (req, res) => {
     })
 });
 
+/***************************************************************
+ *                          Events 
+***************************************************************/
+
+app.post('/events/new', (req, res) => {
+    const sql = `INSERT INTO noticias SET ?`;
+
+    const eventObj = {
+        titulo: req.body.titulo,
+        detalle: req.body.detalle,
+        link_imagen: req.body.link_imagen,
+        desc_imagen: "Imagen relacionada con: " + req.body.link_imagen,
+        fecha_larga: req.body.fecha_larga,
+        fecha_corta: req.body.fecha_corta,
+        hora: req.body.hora,
+        lugares: req.body.lugar,
+        link_evento: "https://ec.ivao.aero/events",
+        estado: req.body.estado
+    };
+
+    connection.query(sql, eventObj, error => {
+        if(error) throw error;
+    })
+});
+
+/***************************************************************
+ *                          Users
+***************************************************************/
 
 app.get('/users', (req, res) => {
     const sql = 'SELECT * FROM usuarios';
@@ -111,6 +148,10 @@ app.get('/getUser/:user', (req,res) => {
         }
     });
 })
+
+/***************************************************************
+ *                          Port 
+***************************************************************/
 
 const port = process.env.port || 3050;
 app.listen(port, () => console.log(`Escuchando en el puerto ${port}...`));

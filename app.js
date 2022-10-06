@@ -74,6 +74,18 @@ app.post('/logs/new/', (req, res) => {
  *                          Events 
 ***************************************************************/
 
+app.get('/events', (req, res) => {
+    const sql = 'SELECT * FROM noticias';
+    connection.query(sql, (error, results) => {
+        if(error) throw error;
+        if(results.length > 0){
+            res.json(results);
+        }else{
+            res.json('NoResults')
+        }
+    });
+});
+
 app.post('/events/new', (req, res) => {
     const sql = `INSERT INTO noticias SET ?`;
 

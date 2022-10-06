@@ -1,4 +1,5 @@
 import { createEvent } from "./createEvent.js";
+import { editEvent } from "./editEvent.js";
 import { findUser } from "./findUser.js";
 import { getLogs } from "./getLogs.js";
 import { popUpAlert } from "./popAlert.js";
@@ -144,6 +145,10 @@ export const adminPage = (staffInfo) => {
 
     eventsOption.addEventListener("click", () => {
         createEvent(staffInfo);
+    })
+
+    eventsOption2.addEventListener("click", () => {
+        editEvent(staffInfo);
     })
 
 }

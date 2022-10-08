@@ -7,7 +7,18 @@ var token = param.get('IVAOTOKEN');
 let staffInfo = [];
 
 /* Checking if the token is null or not. If it is not null, it will fetch the user data from the
-database. */
+database.
+
+const xd = {
+    vid: "598172",
+    firstname: "Example",
+    lastname: "Exampleeee",
+    division: "EC",
+    country: "CO",
+    staff: "EC-WM"
+    }
+
+    */
 
 if(token != null){
     fetch(`/getUser/${token}`)

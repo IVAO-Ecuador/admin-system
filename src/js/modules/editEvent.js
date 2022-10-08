@@ -15,6 +15,12 @@ export const editEvent = async (staffInfo, eventToFind = "") =>{
         adminPage(staffInfo);
     });
 
+    /* Removing the previous table if it exists. */
+    const editEventBox = document.querySelector(".editEventSection")
+    if(editEventBox != undefined){
+        editEventBox.remove();    
+    }
+
     let eventsArray = [], fetchURL;
 
     /* A ternary operator. It is a shorthand for an if/else statement. */
@@ -40,6 +46,23 @@ export const editEvent = async (staffInfo, eventToFind = "") =>{
 
     adminSection.insertBefore(editEventSection, staffInfoSection);
     const eventList = document.querySelector(".eventList");
+
+    const filterButton = document.querySelector("#filterButton");
+
+    filterButton.addEventListener('click', () => {
+        if(filterInput.value != ""){
+            const eventToFind = filterInput.value;
+            editEvent(staffInfo, eventToFind);
+        }
+    });
+
+    filterInput.addEventListener('keyup', function(e) {
+        var keycode = e.keyCode || e.which;
+        if (keycode == 13 && filterInput.value != "") {
+            const eventToFind = filterInput.value;
+            editEvent(staffInfo, eventToFind);
+        }
+    });
 
     if(eventsArray != "NoResults"){
         eventsArray.forEach(event => {

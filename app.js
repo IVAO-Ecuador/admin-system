@@ -86,6 +86,19 @@ app.get('/events', (req, res) => {
     });
 });
 
+app.get('/events/:name', (req, res) => {
+    const {name} = req.params;
+    const sql = `SELECT * FROM noticias WHERE titulo LIKE '%${name}%'`;
+    connection.query(sql, (error, results) => {
+        if(error) throw error;
+        if(results.length > 0){
+            res.json(results);
+        }else{
+            res.json('NoResults')
+        }
+    });
+});
+
 app.post('/events/new', (req, res) => {
     const sql = `INSERT INTO noticias SET ?`;
 

@@ -2,6 +2,10 @@ import { adminPage, adminSection, optionSection, staffInfoSection, titleSection 
 import { createLog } from "./createLog.js";
 import { popUpAlert } from "./popAlert.js";
 
+/***************************************************************
+ *                     Edit event
+***************************************************************/
+
 export const editEvent = async (staffInfo, eventToFind = "") =>{
 
     /* Main change */
@@ -32,6 +36,15 @@ export const editEvent = async (staffInfo, eventToFind = "") =>{
 
     eventsArray.reverse();
 
+    const createButton = () => {
+        if(fetchURL != "/events"){
+            return `<div id='showAllButton'>
+                        <button class='showAllButton'>Mostrar todo</button>
+                    </div>`
+        }
+        return "";
+    }
+
     const editEventSection = document.createElement("div");
     editEventSection.className = "editEventSection";
     editEventSection.innerHTML = `
@@ -42,7 +55,9 @@ export const editEvent = async (staffInfo, eventToFind = "") =>{
         <button id='filterButton'><img src='./src/assets/lupa.png'></button>
     </div>
     
-    <div class='eventList'></div>`
+    <div class='eventList'></div>
+    
+    ${createButton()}`
 
     adminSection.insertBefore(editEventSection, staffInfoSection);
     const eventList = document.querySelector(".eventList");
@@ -63,6 +78,13 @@ export const editEvent = async (staffInfo, eventToFind = "") =>{
             editEvent(staffInfo, eventToFind);
         }
     });
+
+    const showAllButton = document.querySelector(".showAllButton")
+    if(fetchURL != "/events"){
+        showAllButton.addEventListener("click", () => {
+            editEvent(staffInfo,"");
+        })
+    }
 
     if(eventsArray != "NoResults"){
         eventsArray.forEach(event => {
